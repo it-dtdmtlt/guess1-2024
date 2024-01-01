@@ -1,0 +1,51 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>"Поле чудес"</title>
+</head>
+<body bgcolor="#00BFFF">
+<h1> Поздравляю, вы угадали одно из слов!<br> Но это ещё не всё! Есть ещё тринадцать слов, которые вы можете угадывать.<br> Мы надеемся, что вам понравилось.<br> <a href ="правила.html"> Если хотите играть ещё, нажите сюда!</a></h1>
+<script>
+var words = ["морозко","гринч","щелкунчик","рудольф","йоулупукки","микулаш","крампус","оленцеро","эльфы","чысхаан","каганер","хотей","фрости","хрум"];
+var word = words[Math.floor(Math.random() * words.length)];
+var aArray = [];
+for (var i = 0; i < word.length; i++) { aArray[i] = "_";}
+
+var remLetters = word.length;
+if (word== words[0]) {alert("Нижегородский Дед Мороз")}
+else if (word== words[1]) {alert("Американский Похититель Рождества")}
+else if (word== words[2]) {alert("Новогодний брат Буратино")}
+else if (word== words[3]) {alert("Известнейший из оленей Санты")}
+else if (word== words[4]) {alert("Финляндский Дед Мороз")}
+else if (word== words[5]) {alert("Чехский Дед мороз")}
+else if (word== words[6]) {alert("Рождественский чёрт")}
+else if (word== words[7]) {alert("Испанский Дед Мороз")}
+else if (word== words[8]) {alert("Помощники Санты")}
+else if (word== words[9]) {alert("Якутский дух холода")}
+else if (word== words[10]) {alert("Каталонский Дед Мороз")}
+else if (word== words[11]) {alert("Японский Дед Мороз")}
+else if (word== words[12]) {alert("Храбрый снеговичок Санты")}
+else if (word== words[13]) {alert("Новогодний дракончик из Смешариков")}
+while (remLetters > 0) {
+alert(aArray.join(" "));
+var guess = prompt("Угадай букву или нажми отмена для выхода!");
+if (guess === null) {
+break;
+} else if (guess.length !== 1) {
+alert("Введи ОДНУ букву");
+} else {
+for(var j = 0; j <word.length; j++)
+ {
+ if (word[j] === guess) {
+ aArray[j] = guess;
+ remLetters--;
+ }
+ }
+ }
+ }
+alert(aArray.join(" "));
+alert ("Класс! Это было слово " + word);
+</script>
+</body>
+</html>

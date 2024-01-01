@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>поле чудес</title>
+</head>
+<style>
+body {
+background-image : url("228.png"); }
+h1 {color:#0000ff}
+</style>
+<h1> поле чудес<h1>
+ <h1 >в низу сайта сылка на правила</h1>
+ <h1 >С НОВЫМ ГОДОМ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+<img src = "портал.jpg" width = "1080">
+<h1 >Якубович:</h1>
+<h1>молодец теперь перезайди чтобы играть дальше.<h1>
+<h1 ><a href ="правила.html">пересмотреть правила</a></h1>
+<script>
+var words = ["снежинка","звезда","конфета","венок"];
+var word = words[Math.floor(Math.random() * words.length)];
+
+
+var answerArray = [];
+
+for (var i = 0; i <word.length; i++) {
+answerArray[i] = "_";
+}
+ 
+ if (word== words[0]) {alert("её хочет сделать и повесить на окно каждый ребёнок.")}
+else if (word== words[1]) {alert("она висит на ёлке и на небе")}
+else if (word== words[2]) {alert("эту вкусняшку сделали из бумаги но многие думают что она настоящяя и хотят съесть её")}
+else {alert("он бывает из цветов и из веток ёлки, его вешают на двери")}
+
+var remainingletters = word.length;
+
+while (remainingletters > 0) {
+//основной код 
+// покзываем состояние игры
+alert(answerArray.join(" "));
+// запрашиваем вариант ответа
+var guess = prompt ("угадайте букву или нажмите отмена для выхода из игры.");
+if (guess === null) {
+break
+} else if (guess.length !== 1) {
+alert("пожалуйста ввдите только одну букву.");
+}else {
+//обновляем состояние игры
+//обновляем ansewerArry и word.length для кождого
+//вхождения угадоной буквы
+for (var j =0; j< word.length; j++) {
+if (word[j] === guess) {
+answerArray[j] = guess;
+remainingletters--;
+}
+}
+}
+} 
+alert(answerArray.join(" "));
+alert("отлично! было загадано слово " + word);
+
+</script>
+</body>
+</html>

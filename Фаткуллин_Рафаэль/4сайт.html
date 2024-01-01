@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>поле чудес</title>
+</head>
+<body>
+<h1>поле чудес</h1>
+<script>
+var words = ["гринч","сердце","щелкунчик", "королева"];
+var word = words[Math.floor(Math.random()*words.length)];
+var aArray = [];
+for (var i = 0; i < word.length; i ++) { aArray[i] = "_"; 
+}
+
+if (word == words[0]) {alert("Этот мультфильм про героя, который ненавидит новый год.")}
+else if (word == words[1]) {alert('Эта история о двух сестрах, в которой есть магия и веселый снеговик. Она называется "Холодное ...".')}
+else if (word == words[2]) {alert("Мультфильм про заколдованого принца, который щелкает орехи.")}
+else {alert('Волшенбная сказка о злой волшебнице, которая может заморозить кого угодно называется "Снежная ...".')}
+
+var remletters = word.length;
+while (remletters > 0) {
+alert(aArray.join(" "));
+var guess = prompt("Угадайте букву или нажмите ОТМЕНА для выхода из игры.");
+if (guess === null) {
+break;
+} else if (guess.length !==1) {
+alert("Пожалуйста, введите только одну букву.");
+} else {
+for (var j = 0; j <word.length; j++) {
+   if (word[j] === guess) {
+   aArray[j] = guess;
+   remletters--;
+   }
+   }
+}   
+}
+alert(aArray.join(" "));
+alert("Отлично! Было загадано слово " + word) ;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

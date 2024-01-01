@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Поле чудес</title>
+</head>
+<body background="fon.jpg">
+<h1>Поле чудес! </h1>
+
+<script>
+var words = ["шоколад", "глинтвейн", "имбирный", "какао", "пунш", "шампанское", "облепиховый"] 
+var word = words [Math.floor(Math.random() * words.length)];
+
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+answerArray[i] = "_";
+}
+if (word== words[0]) {alert("Горячий ******* - это вкусный напиток приготовленный на основе какао.")}
+else if (word== words[1]) {alert("********* - это горячий ароматный и терпкий  напиток на основе виноградного сока.")}
+else if (word== words[2]) {alert("******** чай - это очень полезный и вкусный напиток на основе всемирно известной пряности.")}
+else if (word== words[3]) {alert("***** - это напиток, в состав которого обязательно входит размолотое какао, а также молоко (или вода) и сахар.")}
+else if (word== words[4]) {alert("**** - это безалкогольный коктейль из различных фруктовых напитков, свежих и консервированных ягод и фруктов.")}
+else if (word== words[5]) {alert("********** - это гристое белое виноградное вино, насыщенное углекислым газом в результате вторичного брожения.")}
+else  {alert("*********** чай - это целебный напиток состоящий из ферментированного иван-чая и сушеной облепихи ")}
+
+var remaningLetters = word.length;
+
+while (remaningLetters > 0) {
+
+alert(answerArray.join(" "));
+
+var guess = prompt("Угадайте букву или нажмите на кнопку Отмена для выхода из игры.");
+if (guess === null) {
+break;
+} else if (guess.length !== 1) {
+alert("Пожалуйста, введите только одну букву.")
+} else {
+for (var j = 0; j < word.length; j++) {
+if (word[j] === guess) {
+answerArray[j] = guess;
+remaningLetters--;
+}
+}
+}
+}
+alert(answerArray.join(" "));
+alert("Отлично! Было загаданно слово " + word);
+</script>
+</body>
+</html>

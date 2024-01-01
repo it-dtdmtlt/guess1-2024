@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta  charset="utf-8" />
+ <title>Поле чудес</title>
+
+</head>
+<body>
+<h1> Поле чудес</h1>
+<script>
+var words = ["крыса","бык","кролик","собака","тигр","змея","коза","петух","лошадь"]
+var word = words[Math.floor(Math.random()* words.length)];
+if (word== words[0]) {alert("Маленькое животное, обитающее в домах, норах, в темных местах и питается сыром - это ... .")}
+else if(word== words[1]) {alert("Крупный рогатый скот,негативно реагирует на красный цвет - это ... .")}
+else if (word== words[2]) {alert("Лесное быстрое милое животное - это ... .")}
+else if (word== words[3]) {alert("Домашнее животное, лучший друг человека - это ... .")}
+else if (word== words[4]) {alert("Большая кошка, которая живет в африке - это ... .")}
+else if (word== words[5]) {alert("Ядовитое животное чей яд очень сложно выводится из организма - это ... .")}
+else if (word== words[6]) {alert("Малый рогатый скот, которое тоже дает молоко - это ... .")}
+else if (word== words[7]) {alert("Птица, которая будит всх по утрам в деревне - это ... .")}
+else  {alert("Большое быстрое сильное животное, в его силах измеряют силу автомобилей - это ... .")}
+var aArray = [];
+for (var i = 0; i < word.length; i++) { aArray[i] = "_";}
+var remLetters = word.length;
+while (remLetters > 0){
+alert (aArray.join(" "));
+var guess = prompt("Угадай букву или нажмите ОТМЕНА для выхода из игры.");
+if (guess === null) {break;}
+else if (guess.length !==1) {
+alert("Пожалуйста,введите только одну букву.");
+} else {
+for (var j = 0; j <word.length; j++) 
+{
+if (word[j] === guess) {
+aArray[j] = guess;
+remLetters--;
+}
+}
+}
+}
+alert(aArray.join(" "));
+alert("Отлично! Было загаданно слово " + word);
+чч
+</script>
+
+
+
+</body>
+</html>

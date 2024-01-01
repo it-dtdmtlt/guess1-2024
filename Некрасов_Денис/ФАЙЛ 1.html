@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <title>Поле чудес</title>
+ </head>
+ <body>
+ <script>
+ var words = [
+ "елка",
+  " свечка" ,
+  " снеговик" ,
+   "игрушечный мишка" ,
+  ] ;
+  var word = words[Math.floor( Math.random () * words.length )] ;
+ var answerArrey = [] ;
+ for (var i = 0 ; i < word.length ; i++) {answerArrey[i] = "_"; }
+ var remainingLetters = word.length;
+  if (word == words[0]) {alert("Что лежит у нас в подарке,деревянная и красивая, можно ее поставить на стол, и она будет украшать праздничный стол") }
+  else if (word == words[1]) {alert("Таять может, да не лед, не фонарь, а свет дает ") }
+ else if (word == words[2]) {alert("Красный нос, в руках метелка,проживает рядом с елкой,к холодам давно привык,наш веселый...") }
+ else   {alert("Он любимая игрушка,спит со мною на подушке,мы гуляем с ним вдвоём, – дружно, весело живём! Я ему читаю книжки – это плюшевый мой ... .") }
+ 
+ while (remainingLetters > 0) {
+ // Основной код
+ // Показываем состояние игры
+ alert(answerArrey.join(" ") ) ;
+ // Запрашиваем вариант ответа 
+ var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры. ") ;
+ if (guess === null) {
+ break;
+ } else if (guess.length !== 1) { alert ("Пожалуйста, введите только одну букву. ") ;
+ } else {
+//	Обновляем answerArray  и  remeiningLetters для каждого вхождения угаданой буквы
+ for (var j = 0; j < word.length; j++) {
+ if  (word[j] === guess) {
+ answerArrey[j] = guess;
+ remainingLetters--;
+ }
+ }    
+ }
+ }
+ alert(answerArrey.join("  ") ) ;
+
+ alert("Отлично! Было разгадано слово" + word) ;
+ 
+  </script>
+  </body>
+  </html>

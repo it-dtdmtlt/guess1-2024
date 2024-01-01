@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>Поле чудес!</title>
+</head>
+<body background="fon.jpg">
+<h1>Поле чудес! </h1>
+<script>
+var words = ["здоровье", "счастье","богатство","радость","подарки","успех"]
+var word = words[Math.floor(Math.random() * words.length)];
+if (word== words[0]) {alert("Это физическое, умственное и социальное благополучие. Мы желаем вам...")}
+else if (word== words[1]) {alert("Это чувство и состояние полного, высшего удовлетворения. Мы желаем вам...")}
+else if (word== words[2]) {alert("Это изобилие у человека или общества нематериальных и материальных ценностей. Мы желаем вам...")}
+else if (word== words[4]) {alert("Это чувство удовольствия, внутреннего удовольствия. Мы желаем вам...")}
+else if (word== words[5]) {alert("Это вещь которую дарят. Мы желаем вам...")}
+
+else   {alert("Это достижение поставленных целей в задуманном деле, положительный результат чего-либо.Мы желаем вам...")}
+
+
+var answerArray = [] ;
+
+for (var i = 0; i < word.length;i++) {answerArray[i] = "_" ; }
+
+
+var remainingLetters = word.length;
+while (remainingLetters > 0) {
+//Основной код
+alert(answerArray.join(" ")) ;
+//Показываем состояние игры
+//Запрашиваем вариант ответа
+var guess = prompt ("Угадайте букву или нажмите Отмена для выхода из игры.");
+if (guess === null)  {
+break;
+} else if (guess.length !== 1) {
+alert("Пожалуйста, введите только одну букву.Буква не должна быть ЗАГЛАВНОЙ иначе игра попросту не работает.Тема:пожелания к Новому Году.") ;
+} else {
+// Обновляем состояние игры
+for (var j = 0; j < word.length; j++) ;{
+if (word[j] === guess) {
+answerArray[j] = guess;
+remainingLetters--;
+}
+}
+}
+}
+alert(answerArray.join(" ")) ;
+alert('Отлично! Было загадоно слово ' + word) ;
+</script>
+</body>
+</html>

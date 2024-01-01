@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>Поле чудес</title>
+</head>
+<body>                                                                 
+<h1>Поле чудес</h1>
+<a href="#" onclick="location.reload(); return false;">
+	еще раз
+</a>
+<script>
+var words = [ "фигур","царь","снежная","гонки"];
+
+var word = words[Math.floor(Math.random()*words.length)];
+
+var aArray = [];
+for (var i = 0; i < word.length; i++) {
+aArray[i] = "_";
+
+}
+ if(word== words[0]) {alert("Создание арт-объектов, выполненных изо снега называется лепка ...")}
+else if (word== words[1]) {alert("Детская народная игра на открытом воздухе, задача игрока в которой — занимать вершину горы или любую другую определённую правилами игры возвышенность (отсюда и название) и не пускать туда остальных игроков называетсяы ... горы.") }
+else if (word== words[2]) {alert("Старинная зимняя забава, целью которой является захват флага команды противника путём снятия его с подставки и выбивание игроков противника снежками, называется ... битва ")}
+else  {alert("Как называется соревнования в стиле «кто быстрее» или «кто дальше»,  суть которого состоит в катании на санках с горки? ")} 
+var remLetters = word.length;
+while (remLetters > 0) {
+alert(aArray.join(" "));
+var guess = prompt("Угадайте букву или нажмите ОТМЕНА для выхода из игры.");
+if (guess === null) {
+break;
+} else if (guess.length !==1) {
+alert("Пожалуйста, введите только одну букву.");
+} else {
+for (var j = 0; j <word.length; j++) {
+	if (word[j] === guess) {
+	aArray[j] = guess;
+	remLetters--;
+	}
+	}
+}
+}
+alert(aArray.join(" "));
+alert("Отлично! Было загадано слово - " + word);
+
+function reload_confirm(){
+	if (confirm('Вы действительно хотите обновить страницу?')) {
+		window.location.reload();
+	}
+}
+</script>
+</body>
+</html>
